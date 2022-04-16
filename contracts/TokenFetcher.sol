@@ -21,7 +21,7 @@ contract GaspachoTokenFetcher {
     return balanceArray;
   }
 
-  function ERC721EnumGetAllTokensForUser(address _user, address _tokenAddress, uint256 _startIndex, uint256 _maxLen) view public returns(uint256[] memory) {
+  function ERC721EnumGetBatchTokensForUser(address _user, address _tokenAddress, uint256 _startIndex, uint256 _maxLen) view public returns(uint256[] memory) {
     uint256 userBalance = IERC721Enumerable(_tokenAddress).balanceOf(_user);
     if (userBalance == 0 || _startIndex >= userBalance) {
       return (new uint256[](0));
@@ -43,7 +43,7 @@ contract GaspachoTokenFetcher {
     return tokenIdsArray;
   }
 
-  function ERC721GetAllTokensForUser(address _user, address _tokenAddress, uint256 _startId, uint256 _maxLen, uint256 _maxId) view public returns(uint256[] memory) {
+  function ERC721GetBatchTokensForUser(address _user, address _tokenAddress, uint256 _startId, uint256 _maxLen, uint256 _maxId) view public returns(uint256[] memory) {
     uint256 userBalance = IERC721(_tokenAddress).balanceOf(_user);
     if (userBalance == 0 || _startId > _maxId) {
       return (new uint256[](0));
